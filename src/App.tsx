@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "mobx-react";
+import "./App.css";
+
+import Message from "./components/Message";
+import Pin from "./components/Pin";
+
+import { globalStore } from "./models/Global";
+
+const { messageStore, pinStore } = globalStore;
+
+const stores = {
+  messageStore,
+  pinStore
+};
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider {...stores}>
+      <div className="container">
+        <div className="item">
+          <Pin />
+        </div>
+        <div className="item">
+          <Message />
+        </div>
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
