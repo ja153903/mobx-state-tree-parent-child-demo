@@ -1,6 +1,6 @@
 import React, { useState, FC, ChangeEvent, FormEvent } from "react";
 import { inject, observer } from "mobx-react";
-import { IStateTreeNode, IAnyStateTreeNode } from "mobx-state-tree";
+import { IAnyStateTreeNode } from "mobx-state-tree";
 
 type PinProps = {
   pinStore?: IAnyStateTreeNode;

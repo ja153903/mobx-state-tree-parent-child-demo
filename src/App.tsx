@@ -7,16 +7,9 @@ import Pin from "./components/Pin";
 
 import { globalStore } from "./models/Global";
 
-const { messageStore, pinStore } = globalStore;
-
-const stores = {
-  messageStore,
-  pinStore
-};
-
 const App: React.FC = () => {
   return (
-    <Provider {...stores}>
+    <Provider {...globalStore}>
       <div className="container">
         <div className="item">
           <Pin />
